@@ -1,0 +1,19 @@
+---
+# kustomize build --enable-alpha-plugins
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+metadata:
+  name: ypyp-policies
+placementBindingDefaults:
+  name: placement-binding-ypyp-policies
+policyDefaults:
+  namespace: policies
+  placement:
+    name: placement-ypyp-policies
+    clusterSelectors:
+      vendor: "OpenShift"
+  remediationAction: inform
+policies:
+  - name: openshift-gitops
+    manifests:
+      - path: 

@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: openshift-wildcard
+  namespace: openshift-ingress
+spec:
+  secretName: openshift-wildcard-certificate
+  issuerRef:
+    name: letsencrpyt-clusterissuer
+    kind: ClusterIssuer
+  commonName: 
+  dnsNames:
+    - 

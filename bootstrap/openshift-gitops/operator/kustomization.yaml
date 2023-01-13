@@ -1,0 +1,39 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../../common/openshift-gitops/operator/
+
+patches:
+  - target:
+      kind: Subscription
+      name: openshift-gitops-operator
+    patch: |-
+      - op: replace
+        path: /spec/channel
+        value: stable
+  - target:
+      kind: Subscription
+      name: openshift-gitops-operator
+    patch: |-
+      - op: add
+        path: /spec/config
+        value:
+          env:
+          - name: ARGOCD_CLUSTER_CONFIG_NAMESPACES
+            value: openshift-gitops
+  # - target:
+  #     kind: Subscription
+  #     name: openshift-gitops-operator
+  #   patch: |-
+  #     - op: add
+  #       path: /spec/config
+  #       value:
+  #         env:
+  #         - name: CONTROLLER_CLUSTER_ROLE
+  #           value: custom-controller-role
+  #         - name: SERVER_CLUSTER_ROLE
+  #           value: custom-server-role
+  #         - name: ARGOCD_CLUSTER_CONFIG_NAMESPACES
+  #           value: openshift-gitops, <namespace where Argo CD instance is installed>
+        

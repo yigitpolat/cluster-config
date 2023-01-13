@@ -1,0 +1,14 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: hashicorp-vault
+  namespace: hashicorp-vault
+spec:
+  host: hashicorp-vault.apps.ocp4.ypolat.me
+  to:
+    kind: Service
+    name: hashicorp-vault
+    weight: 100
+  port:
+    targetPort: http
+  wildcardPolicy: None

@@ -1,0 +1,15 @@
+kind: ArgoCD
+apiVersion: argoproj.io/v1alpha1
+metadata:
+  name: openshift-gitops
+  namespace: openshift-gitops
+spec:
+  kustomizeBuildOptions: "--enable-helm"
+  server:
+    insecure: true
+    route:
+      enabled: true
+      tls:
+        insecureEdgeTerminationPolicy: Redirect
+        termination: edge
+      

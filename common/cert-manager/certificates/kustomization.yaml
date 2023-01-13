@@ -1,0 +1,8 @@
+kind: Kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+
+resources:
+  - api-certificate.yaml
+  - ingress-certificate.yaml
+  - apiserver-config.yaml
+  - ingress-controller-config.yaml

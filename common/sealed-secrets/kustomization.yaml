@@ -1,0 +1,18 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - namespace.yaml
+
+helmCharts:
+  - name: sealed-secrets
+    version: 2.7.2
+    repo: https://bitnami-labs.github.io/sealed-secrets
+    namespace: sealed-secrets
+    releaseName: sealed-secrets
+    includeCRDs: true
+    valuesInline:
+      podSecurityContext:
+        enabled: false
+      containerSecurityContext:
+        enabled: false
