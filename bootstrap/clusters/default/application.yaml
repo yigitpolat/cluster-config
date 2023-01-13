@@ -1,10 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: cluster-config-bootstrap
+  name: default-cluster-config-bootstrap
   namespace: openshift-gitops
 spec:
-  project: cluster-config
+  project: default-cluster-config
   source:
     path: clusters/default/argocd-bootstrap/
     repoURL: https://github.com/yigitpolat/cluster-config.git
