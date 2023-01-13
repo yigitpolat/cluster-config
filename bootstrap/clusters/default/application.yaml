@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cluster-config-bootstrap
+  namespace: openshift-gitops
+spec:
+  project: cluster-config
+  source:
+    path: clusters/default/apps/argocd-bootstrap
+    repoURL: https://github.com/yigitpolat/cluster-config.git
+    targetRevision: HEAD
+  destination:
+    namespace: openshift-gitops
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true
