@@ -8,7 +8,7 @@ metadata:
 spec:
   project: cluster-config
   source:
-    path: clusters/default/apps/cert-manager/operator/
+    path: clusters/default/apps/cert-manager/operator
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
   destination:
