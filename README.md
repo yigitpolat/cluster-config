@@ -38,7 +38,7 @@ oc apply -k bootstrap/openshift-gitops/instance --server-side=true
 #### Create app-of-apps
 
 ```sh
-oc apply -f bootstrap/app-of-apps/
+oc apply -f bootstrap/clusters/default
 ```
 
 

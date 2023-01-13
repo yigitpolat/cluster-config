@@ -6,7 +6,7 @@ metadata:
 spec:
   project: cluster-config
   source:
-    path: clusters/default/apps/argocd-bootstrap
+    path: clusters/default/argocd-bootstrap/
     repoURL: https://github.com/yigitpolat/cluster-config.git
     targetRevision: HEAD
   destination:
