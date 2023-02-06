@@ -1,0 +1,21 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+generatorOptions:
+  disableNameSuffixHash: true
+  annotations:
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
+
+secretGenerator:
+  - name: api-certificate
+    namespace: openshift-config
+    type: "kubernetes.io/tls"
+    files:
+      - tls.crt=tls-api.crt
+      - tls.key=tls-api.key
+
+bases:
+  - ../../../../common/baseconfig/api-certificate
+
+patches:
+- patch.yaml
