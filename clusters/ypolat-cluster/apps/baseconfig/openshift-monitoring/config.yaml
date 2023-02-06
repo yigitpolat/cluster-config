@@ -1,0 +1,24 @@
+---
+alertmanagerMain:
+  nodeSelector:
+    key: value
+  volumeClaimTemplate:
+    metadata:
+      name: alertmanager-pvc
+    spec:
+      storageClassName: <storageclass>
+      resources:
+        requests:
+          storage: 19Gi
+prometheusK8s:
+  nodeSelector:
+    key: value
+  retention: 7d
+  volumeClaimTemplate:
+    metadata:
+      name: prom-pvc
+    spec:
+      storageClassName: <storageclass>
+      resources:
+        requests:
+          storage: 180Gi
