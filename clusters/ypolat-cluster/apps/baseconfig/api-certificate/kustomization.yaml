@@ -18,4 +18,4 @@ bases:
   - ../../../../common/baseconfig/api-certificate
 
 patches:
-- patch.yaml
+- apiserver.yaml
