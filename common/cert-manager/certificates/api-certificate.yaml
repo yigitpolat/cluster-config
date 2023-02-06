@@ -9,4 +9,4 @@ spec:
     name: letsencrpyt-clusterissuer
     kind: ClusterIssuer
   dnsNames:
-    - 
+    - <replace-here>

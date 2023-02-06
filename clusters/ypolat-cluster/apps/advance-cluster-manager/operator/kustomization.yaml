@@ -12,3 +12,10 @@ patches:
       - op: replace
         path: /spec/channel
         value: 'release-2.6'
+  # - target:
+  #     kind: namespace
+  #     name: open-cluster-management
+  #   patch: |-
+  #     - op: add
+  #       patch: /metadata/annotations
+  #       value: 'openshift.io/node-selector: network=interal, zone=app'
